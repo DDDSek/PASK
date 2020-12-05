@@ -18,4 +18,4 @@ done
 if [ "$started" = false ]; then
   echo "Failure"
   exit 1
-fi
+fi 
