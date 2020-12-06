@@ -132,10 +132,11 @@ pipeline {
 	  
 	  
 	  
-	      //stage('Deploy Production') {
-      //when { branch 'production' }
+	     // stage('Deploy Production') {
+     // when { branch 'production' }
 	  
        stage('Input') {
+	         when { branch 'production' }
             steps {
                 input('Do you want to proceed?')
             }
