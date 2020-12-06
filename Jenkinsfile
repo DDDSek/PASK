@@ -105,7 +105,7 @@ pipeline {
             image.push('latest')
           }
 		  docker.withRegistry('https://index.docker.io/v1/', 'Docker Hub') {
-            def image = docker.image("sekul/carrentalsystem-user-client")
+            def image = docker.image("sekul/carrentalsystem-user-client-production")
             image.push("1.0.${env.BUILD_ID}")
             image.push('latest')
           }
