@@ -32,7 +32,7 @@ pipeline {
         
       steps {
         powershell(script: 'docker-compose build')
-        powershell(script: 'docker build -t sekul/carrentalsystem-user-client-production --build-arg configuration=production ./Client')
+        powershell(script: 'docker build -t sekul/carrentalsystem-user-client-production )
         powershell(script: 'docker images -a')
       }
     }
