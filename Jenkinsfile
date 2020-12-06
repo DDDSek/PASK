@@ -20,19 +20,11 @@ pipeline {
         """)
       }
     }
-	stage('Docker Build Development') {
+     stage('Docker Build Development') {
        when { branch 'development' }
       steps {
         powershell(script: 'docker-compose build')
         powershell(script: 'docker build -t sekul/carrentalsystem-user-client-development --build-arg configuration=development ./Client')
-        powershell(script: 'docker images -a')
-      }
-    }
-     stage('Docker Build Production') {
-        
-      steps {
-        powershell(script: 'docker-compose build')
-        powershell(script: 'docker build -t sekul/carrentalsystem-user-client-production --build-arg configuration=production ./Client' )
         powershell(script: 'docker images -a')
       }
     }
