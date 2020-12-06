@@ -29,7 +29,7 @@ pipeline {
       }
     }
      stage('Docker Build Production') {
-       when { branch 'main' }
+       when { branch 'production' }
       steps {
         powershell(script: 'docker-compose build')
         powershell(script: 'docker build -t sekul/carrentalsystem-user-client-production --build-arg configuration=production ./Client')
