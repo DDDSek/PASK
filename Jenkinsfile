@@ -127,5 +127,32 @@ pipeline {
         }
       }
     }
+	  
+	  
+	  
+	  
+	  
+	      stage('Deploy Production') {
+      when { branch 'production' }
+	  
+       stage('Input') {
+            steps {
+                input('Do you want to proceed?')
+            }
+        }
+
+        stage('If Proceed is yes') {
+			steps {
+				withKubeConfig([credentialsId: 'DevelopmentServer', serverUrl: 'https://34.72.169.70']) {
+					powershell(script: 'kubectl apply -f ./.k8s/.environment/production.yml') 
+					powershell(script: 'kubectl apply -f ./.k8s/databases') 
+					powershell(script: 'kubectl apply -f ./.k8s/event-bus') 
+					powershell(script: 'kubectl apply -f ./.k8s/web-services') 
+					powershell(script: 'kubectl apply -f ./.k8s/clients') 
+					powershell(script: 'kubectl set image deployments/user-client user-client=sekul/carrentalsystem-user-client-production:latest')
+				}
+			}
+		}
+}	
   }
 }
