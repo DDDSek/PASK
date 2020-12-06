@@ -68,13 +68,17 @@ pipeline {
         // powershell(script: 'docker volumes prune -f')   		
       }
       post {
-	    success {
-	      echo "Build successfull! You should deploy! :)"
-	    }
-	    failure {
-	      echo "Build failed! You should receive an e-mail! :("
-	    }
-      }
+        failure {
+		  mail to: 'telerikcsharp1@gmail.com',
+		    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+		    body: "Something is wrong with ${env.BUILD_URL}"
+		}
+        success {
+		  mail to: 'telerikcsharp1@gmail.com',
+		    subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
+		    body: "Build with ${env.BUILD_URL} succeeded"
+		}
+      } 
     }
     stage('Push Images') {
       when { branch 'main' }  
