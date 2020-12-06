@@ -61,7 +61,7 @@ pipeline {
       }
     }
     stage('Push Images') {
-      when { branch 'main' }  //da se nbapravi i za development
+      when { branch 'main' }  
       steps {
         script {
           docker.withRegistry('https://index.docker.io/v1/', 'Docker Hub') {
