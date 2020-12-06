@@ -56,7 +56,7 @@ pipeline {
 	      echo "Build successfull! You should deploy! :)"
 	    }
 	    failure {
-	      echo "Build failed, go home! You should receive an e-mail! :("
+	      echo "Build failed! You should receive an e-mail! :("
 	    }
       }
     }
