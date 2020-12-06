@@ -128,9 +128,9 @@ pipeline {
       }
     }	  	  
        stage('Input') {
-	         when { branch 'production' }
+	         when { branch 'main' }
             steps {
-                input('Do you want to proceed?')
+                input('Do you want to proceeeeeeed?')
             }
         }
 
