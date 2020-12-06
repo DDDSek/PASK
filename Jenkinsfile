@@ -126,15 +126,7 @@ pipeline {
            powershell(script: 'kubectl set image deployments/user-client user-client=sekul/carrentalsystem-user-client-development:latest')
         }
       }
-    }
-	  
-	  
-	  
-	  
-	  
-	     // stage('Deploy Production') {
-     // when { branch 'production' }
-	  
+    }	  	  
        stage('Input') {
 	         when { branch 'production' }
             steps {
