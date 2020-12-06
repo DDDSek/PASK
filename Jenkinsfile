@@ -29,7 +29,7 @@ pipeline {
       }
     }
      stage('Docker Build Production') {
-       when { branch 'master' }
+       when { branch 'main' }
       steps {
         powershell(script: 'docker-compose build')
         powershell(script: 'docker build -t sekul/carrentalsystem-user-client-production --build-arg configuration=production ./Client')
@@ -61,7 +61,7 @@ pipeline {
       }
     }
     stage('Push Images') {
-      when { branch 'master' }  //da se nbapravi i za development
+      when { branch 'main' }  //da se nbapravi i za development
       steps {
         script {
           docker.withRegistry('https://index.docker.io/v1/', 'Docker Hub') {
