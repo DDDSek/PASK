@@ -149,7 +149,7 @@ pipeline {
 					powershell(script: 'kubectl apply -f ./.k8s/event-bus') 
 					powershell(script: 'kubectl apply -f ./.k8s/web-services') 
 					powershell(script: 'kubectl apply -f ./.k8s/clients') 
-					powershell(script: 'kubectl set image deployments/user-client user-client=sekul/carrentalsystem-user-client-production:latest')
+					powershell(script: 'kubectl set image deployments/user-client user-client=sekul/carrentalsystem-user-client-production')
 				}
 			}
 		}
