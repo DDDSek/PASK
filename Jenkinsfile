@@ -67,18 +67,7 @@ pipeline {
         powershell(script: 'docker-compose down') 
         // powershell(script: 'docker volumes prune -f')   		
       }
-      post {
-        success {
-		  mail to: 'telerikcsharp1@gmail.com',
-		    subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
-		    body: "Build with ${env.BUILD_URL} succeeded"
-		}
-        failure {
-		  mail to: 'telerikcsharp1@gmail.com',
-		    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-		    body: "Something is wrong with ${env.BUILD_URL}"
-		}
-      } 
+ 
     }
     stage('Push Images') {
       when { branch 'main' }  
