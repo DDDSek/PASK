@@ -51,11 +51,11 @@ pipeline {
     }
     stage('Run Integration Tests') {
       steps {
-        powershell(script: './Tests/ContainerTestsProd.ps1') 
+        powershell(script: './Tests/ContainerTests.ps1') 
       }
-	  post {
+      post {
 	    success {
-	      echo "Run Integration successfull!"
+               echo "Success Run Integration Tests stage"
 	    }
 	    failure {
 	      powershell(script: 'docker-compose down')
