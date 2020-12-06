@@ -132,7 +132,7 @@ pipeline {
 	  
 	  
 	  
-	      stage('Deploy Production') {
+	      //stage('Deploy Production') {
       //when { branch 'production' }
 	  
        stage('Input') {
@@ -153,6 +153,6 @@ pipeline {
 				}
 			}
 		}
-}	
+//}	
   }
 }
