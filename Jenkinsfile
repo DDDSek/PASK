@@ -133,7 +133,7 @@ pipeline {
 	  
 	  
 	      stage('Deploy Production') {
-      when { branch 'production' }
+      //when { branch 'production' }
 	  
        stage('Input') {
             steps {
