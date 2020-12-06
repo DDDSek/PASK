@@ -40,6 +40,14 @@ pipeline {
       steps {
         powershell(script: 'docker-compose up -d')    
       }
+      post {
+        success {
+	      echo "Success Run Test Application stage"
+	    }
+	    failure {
+	      powershell(script: 'docker-compose down')
+	    }
+      }
     }
     stage('Run Integration Tests') {
       steps {
